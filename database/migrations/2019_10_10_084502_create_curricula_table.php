@@ -16,6 +16,7 @@ class CreateCurriculaTable extends Migration
         Schema::create('curricula', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('department_id');
+            $table->string('name');
         });
 
         Schema::table('curricula', function($table) {
