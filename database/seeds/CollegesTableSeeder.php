@@ -1,5 +1,6 @@
 <?php
 
+use App\College;
 use Illuminate\Database\Seeder;
 
 class CollegesTableSeeder extends Seeder

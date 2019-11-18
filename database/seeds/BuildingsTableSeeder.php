@@ -1,5 +1,6 @@
 <?php
 
+use App\Building;
 use Illuminate\Database\Seeder;
 
 class BuildingsTableSeeder extends Seeder

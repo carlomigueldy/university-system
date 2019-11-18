@@ -9,4 +9,11 @@ class Department extends Model
     protected $fillable = [
         'name'
     ];
+
+    public $timestamps = false;
+
+    public function college()
+    {
+        return $this->belongsTo('App\College');
+    }
 }
