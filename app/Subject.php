@@ -11,4 +11,9 @@ class Subject extends Model
     ];
 
     public $timestamps = false;
+
+    public function curriculum_subjects()
+    {
+        return $this->hasMany('App\CurriculumSubject');
+    }
 }

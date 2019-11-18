@@ -15,12 +15,18 @@ class CreateFacultiesTable extends Migration
     {
         Schema::create('faculties', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('religion_id');
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
-            $table->string('major');
             $table->string('gender');
             $table->date('date_of_birth');
+        });
+
+        Schema::table('faculties', function ($table) {
+            $table->foreign('department_id')->references('id')->on('departments');
+            $table->foreign('religion_id')->references('id')->on('religions');
         });
     }
 
