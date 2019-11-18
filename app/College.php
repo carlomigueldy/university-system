@@ -16,4 +16,9 @@ class College extends Model
     {
         return $this->hasMany('App\Department');
     }
+
+    public function building()
+    {
+        return $this->belongsTo('App\Building');
+    }
 }

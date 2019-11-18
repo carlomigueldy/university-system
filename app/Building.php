@@ -11,4 +11,14 @@ class Building extends Model
     ];
 
     public $timestamps = false;
+
+    public function rooms()
+    {
+        return $this->hasMany('App\Room');
+    }
+
+    public function college()
+    {
+        return $this->hasOne('App\College');
+    }
 }

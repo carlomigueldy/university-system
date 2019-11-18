@@ -24,20 +24,14 @@ class CurriculumSubjectsTableSeeder extends Seeder
                 ]);
 
                 $department_id = App\Curriculum::where('id', $curr_subj->curriculum_id)->select('department_id')->first();
-                $faculties = App\Faculty::where('department_id', $department_id)->select('id')->get();
-                $facultyIDs = array();
-                foreach (range(0, count($faculties)) as $i) {
-                    array_push($facultyIDs, $faculty->id);
-                    // foreach ($faculties as $faculty) {
-                    // }
-                    // $facultyIDs[] = $faculty->id;
-                }
+                $faculties = App\Faculty::where('department_id', $department_id)->select('id')->get()->toArray();
 
-                Offering::create([
-                    'room_id' => $faker->numberBetween($min = 1, $max = App\Room::count()),
-                    'faculty_id' => $facultyIDs[array_rand($facultyIDs)],
-                    'subject_id' => $curr_subj->subject_id,
-                ]);
+                if(count($faculties) > 0) 
+                    Offering::create([
+                        'room_id' => $faker->numberBetween($min = 1, $max = App\Room::count()),
+                        'faculty_id' => $faculties[array_rand($faculties)]['id'],
+                        'subject_id' => $curr_subj->subject_id,
+                    ]);
             }
         }
     }
