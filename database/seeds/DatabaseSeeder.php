@@ -19,9 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CollegesTableSeeder::class);
         $this->call(DepartmentsTableSeeder::class);
         factory('App\Faculty', 500)->create();
-        factory('App\Student', 1000)->create();
+        // factory('App\Student', 1000)->create();
         factory('App\Room', 140)->create();
         $this->call(CurriculaTableSeeder::class);
         $this->call(CurriculumSubjectsTableSeeder::class);
+        $this->call(StudentsTableSeeder::class);    
     }
 }

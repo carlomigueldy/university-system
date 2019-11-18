@@ -16,6 +16,12 @@ class CurriculumSubjectsTableSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
         $curriculums = Curriculum::select('id')->get();
+
+        /**
+         * On each curriculum, it has at least 60 subjects in it.
+         * And course offerings is added as well just according
+         * to what the subjects are.
+         */
         foreach ($curriculums as $curriculum) {
             for ($i = 0; $i < 60; $i++) {
                 $curr_subj = CurriculumSubject::create([

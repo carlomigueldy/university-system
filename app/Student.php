@@ -17,4 +17,19 @@ class Student extends Model
     ];
 
     public $timestamps = false;
+
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+
+    public function religion()
+    {
+        return $this->belongsTo('App\Religion');
+    }
+
+    public function certificate_of_registration()
+    {
+        return $this->hasMany('App\CertificateOfRegistration');
+    }
 }

@@ -17,4 +17,9 @@ class Curriculum extends Model
     {
         return $this->hasMany('App\CurriculumSubject');
     }
+
+    public function certificate_of_registrations()
+    {
+        return $this->hasMany('App\CertificateOfRegistration');
+    }
 }

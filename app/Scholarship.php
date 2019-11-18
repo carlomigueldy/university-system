@@ -11,4 +11,9 @@ class Scholarship extends Model
     ];
 
     public $timestamps = false;
+
+    public function certificate_of_registrations()
+    {
+        return $this->hasMany('App\CertificateOfRegistration');
+    }
 }
