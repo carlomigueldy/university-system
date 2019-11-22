@@ -15,10 +15,11 @@ class CreateCurriculumSubjectsTable extends Migration
     {
         Schema::create('curriculum_subjects', function (Blueprint $table) {
             $table->unsignedBigInteger('curriculum_id');
-            $table->unsignedBigInteger('subject_id')->unique();
+            $table->unsignedBigInteger('subject_id');
         });
 
         Schema::table('curriculum_subjects', function($table) {
+            $table->primary(['curriculum_id', 'subject_id']);
             $table->foreign('curriculum_id')->references('id')->on('curricula');
             $table->foreign('subject_id')->references('id')->on('subjects');
         }); 

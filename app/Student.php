@@ -28,7 +28,7 @@ class Student extends Model
         return $this->belongsTo('App\Religion');
     }
 
-    public function certificate_of_registration()
+    public function certificate_of_registrations()
     {
         return $this->hasMany('App\CertificateOfRegistration');
     }

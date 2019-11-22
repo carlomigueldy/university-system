@@ -17,4 +17,9 @@ class Faculty extends Model
     ];
 
     public $timestamps = false;
+
+    public function religion()
+    {
+        return $this->belongsTo('App\Religion');
+    }
 }

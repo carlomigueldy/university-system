@@ -30,13 +30,11 @@ class CurriculumSubjectsTableSeeder extends Seeder
             
             /**
              * Each Curriculum will have 64 subjects.
-             * 
-             * @return error
              */
             for ($i = 0; $i < $numberOfSubjects; $i++) {
                 $index = null;
                 while (!$index) {
-                    $index = array_rand($subjectKeys); 
+                    $index = array_rand($subjects); 
                 }
                 
                 $subject_id = $subjects[$index]['id'];

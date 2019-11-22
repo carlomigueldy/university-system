@@ -11,4 +11,9 @@ class Grade extends Model
     ];
 
     public $timestamps = false;
+
+    public function enrolled_subjects()
+    {
+        return $this->hasMany('App\EnrolledSubject');
+    }
 }

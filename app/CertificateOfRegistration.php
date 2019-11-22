@@ -29,4 +29,9 @@ class CertificateOfRegistration extends Model
     {
         return $this->belongsTo('App\Curriculum');
     }
+
+    public function enrolled_subjects()
+    {
+        return $this->hasMany('App\EnrolledSubject');
+    }
 }

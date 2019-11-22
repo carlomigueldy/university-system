@@ -1,7 +1,9 @@
 <?php
 
+use App\EnrolledSubject;
 use App\Subject;
 use App\Student;
+use App\Curriculum;
 use App\CertificateOfRegistration as COR;
 use Illuminate\Database\Seeder;
 
@@ -15,10 +17,10 @@ class StudentsTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        $genders = ['Male', 'Female'];
-        $hasScolhaship = [true, false];
-
-        foreach (range(1, 500) as $i) {
+        
+        foreach (range(1, 10000) as $i) {
+            $genders = ['Male', 'Female'];
+            $hasScholarship = [true, false];
             $student = Student::create([
                 'department_id' => $faker->numberBetween($min = 1, $max = App\Department::count()),
                 'religion_id' => $faker->numberBetween($min = 1, $max = App\Religion::count()),
@@ -30,11 +32,10 @@ class StudentsTableSeeder extends Seeder
             ]);
 
             $curriculum_id = $faker->numberBetween($min = 1, $max = App\Curriculum::count());
-
-            if ($hasScolhaship[array_rand($hasScolhaship)] == true) {
+            
+            $scholarship_id = 1;
+            if ($hasScholarship[array_rand($hasScholarship)] == true) {
                 $scolarship_id = $faker->numberBetween($min = 1, $max = App\Scholarship::count());
-            } else {
-                $scholarship_id = 1;
             }
 
             $curr_subjects = Curriculum::find($curriculum_id);
@@ -52,16 +53,15 @@ class StudentsTableSeeder extends Seeder
             ]);
                 
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
 
             $cor = COR::create([
@@ -73,16 +73,15 @@ class StudentsTableSeeder extends Seeder
             ]);
 
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
 
             /**
@@ -97,16 +96,15 @@ class StudentsTableSeeder extends Seeder
             ]);
 
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
 
             $cor = COR::create([
@@ -118,16 +116,15 @@ class StudentsTableSeeder extends Seeder
             ]);
 
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
 
             /**
@@ -142,16 +139,15 @@ class StudentsTableSeeder extends Seeder
             ]);
 
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
 
             $cor = COR::create([
@@ -163,16 +159,15 @@ class StudentsTableSeeder extends Seeder
             ]);
 
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
 
             /**
@@ -187,16 +182,15 @@ class StudentsTableSeeder extends Seeder
             ]);
             
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
 
             $cor = COR::create([
@@ -208,16 +202,15 @@ class StudentsTableSeeder extends Seeder
             ]);
 
             foreach (range(1, 8) as $s) {
-                $key = array_keys($subjects);
-                $subject_id = array_rand($subjects[$key]);
+                $subject = array_rand($subjects);
                 EnrolledSubject::create([
                     'certificate_of_registration_id' => $cor->id,
-                    'grade_id' => $faker->numberBetween($min = 0, $max = App\Grade::count()),
-                    'subject_id' => $subject_id,
+                    'grade_id' => $faker->numberBetween($min = 1, $max = App\Grade::count()),
+                    'subject_id' => $subjects[$subject]['subject_id'],
                 ]);
                 
                 // Remove the element once it was consumed
-                unset($subject_id);
+                unset($subjects[$subject]);
             }
         }
     }
