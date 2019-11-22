@@ -18,14 +18,14 @@ class CreateEnrolledSubjectsTable extends Migration
             $table->unsignedBigInteger('certificate_of_registration_id');
             // $table->unsignedBigInteger('completion_record_id');
             $table->unsignedBigInteger('grade_id');
-            $table->unsignedBigInteger('offering_id');
+            $table->unsignedBigInteger('subject_id');
         });
 
         Schema::table('enrolled_subjects', function($table) {
             $table->foreign('certificate_of_registration_id')->references('id')->on('certificate_of_registrations');
             // $table->foreign('completion_record_id')->references('id')->on('completion_records');
             $table->foreign('grade_id')->references('id')->on('grades');
-            $table->foreign('offering_id')->references('id')->on('offerings');
+            $table->foreign('subject_id')->references('id')->on('subjects');
         }); 
     }
 

@@ -13,6 +13,10 @@ class ScholarshipsTableSeeder extends Seeder
     public function run()
     {
         Scholarship::create([
+            'name' => 'None',
+        ]);
+        
+        Scholarship::create([
             'name' => 'DOST'
         ]);
 

@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         factory('App\Room', 140)->create();
         $this->call(CurriculaTableSeeder::class);
         $this->call(CurriculumSubjectsTableSeeder::class);
-        $this->call(StudentsTableSeeder::class);    
+        // $this->call(StudentsTableSeeder::class);    
     }
 }
