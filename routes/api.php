@@ -2,10 +2,11 @@
 
 use Illuminate\Http\Request;
 
-Route::get('getSubjectGradePerYear/{subject_id}/{year}/{grade}', 'ETLController@getSubjectGradePerYear');
-Route::get('getGenderPerYear/{gender}/{year}', 'ETLController@getGenderPerYear');
+Route::get('getSubjectGradePerYear/{year}/{subject_id}/{grade}', 'ETLController@getSubjectGradePerYear');
+Route::get('getGenderPerYear/{year}/{gender}', 'ETLController@getGenderPerYear');
 Route::get('getStudentPerYear/{year}', 'ETLController@getStudentPerYear');
-Route::get('getCurriculumPerYear/{curriculum_id}/{year}', 'ETLController@getCurriculumPerYear');
+Route::get('getCurriculumPerYear/{year}/{curriculum_id}/', 'ETLController@getCurriculumPerYear');
+Route::get('getSubjectSemesterYear/{year}/{semester}/{subject_id}/', 'ETLController@getSubjectSemesterYear');
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

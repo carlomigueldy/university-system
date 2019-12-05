@@ -16,7 +16,7 @@ class ETLController extends Controller
      * @param Integer $year
      * @param Numeric $grade
      */
-    public function getSubjectGradePerYear($subject_id, $year, $grade)
+    public function getSubjectGradePerYear($year, $subject_id, $grade)
     {
         $subjects = Subject::find($subject_id)->enrolled_subjects;
         $count = 0;
@@ -40,7 +40,7 @@ class ETLController extends Controller
      * @param String $gender
      * @param Integer $year
      */
-    public function getGenderPerYear($gender, $year)
+    public function getGenderPerYear($year, $gender)
     {
         $students = COR::where('year', $year)->get();
         $count = 0;
@@ -80,7 +80,7 @@ class ETLController extends Controller
      * @param Integer $curriculum_id
      * @param Integer $year
      */
-    public function getCurriculumPerYear($curriculum_id, $year)
+    public function getCurriculumPerYear($year, $curriculum_id)
     {
         try {
             $students = COR::where('curriculum_id', $curriculum_id)->where('year', $year)->get();
@@ -96,5 +96,38 @@ class ETLController extends Controller
             'curriculum' => $students[0]->curriculum->name,
             'count' => $count,
         ]);
+    }
+    
+    /**
+     * Gets the number of students that took a specific subject
+     * in a specific semester with a specific year.
+     * 
+     * @param Integer $subject_id
+     * @param Integer $semester
+     * @param Integer $year
+     */
+    public function getSubjectSemesterYear($year, $semester, $subject_id)
+    {
+        $students = COR::where('year', $year)->where('semester', $semester == 1 ? '1st Semester' : $semester == 2 ? '2nd Semester' : null)->get();
+        $count = 0;
+        foreach ($students as $student) {
+            foreach ($student->enrolled_subjects as $subject) {
+                if ($subject->subject_id == $subject_id) {
+                    $count++;
+                }
+            }
+        }
+
+        return response()->json([
+            'subject_id' => $subject_id,
+            'semester' => $semester,
+            'year' => $year,
+            'count' => $count,
+        ]);
+    }
+
+    public function getScholarship() 
+    {
+        // 
     }
 }
