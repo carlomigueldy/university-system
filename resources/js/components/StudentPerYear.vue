@@ -2,28 +2,20 @@
     <div class="card">
         <div class="card-body">
             <div class="card-title">
-                <h3><code class="method">getGenderPerYear(year, gender)</code></h3>
+                <h3><code class="method">getStudentPerYear(year)</code></h3>
                 <code class="comment">
-                    Gets the number of a specific gender of a specific year.
+                    Gets the number of students of a specific year.
                 </code>
                 <div class="p-2">
                     <b>Parameters: </b>
                     <input 
                         type="text" 
                         v-model="year" 
-                        placeholder="year"
-                    >
-                    <select 
-                    type="text" 
-                    v-model="gender" 
-                    placeholder="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                    <button @click="fetchGenderPerYear()">Fetch</button>
+                        placeholder="year">
+                    <button @click="fetchStudentPerYear()">Fetch</button>
                 </div>
                 <div class="app-uri pt-2">
-                    URI: {{ `/api/getGenderPerYear/${year ? year : '{year}'}/${gender ? gender : '{gender}'}` }}
+                    URI: {{ `/api/getStudentPerYear/${year ? year : '{year}'}` }}
                 </div>
             </div>
         </div>
@@ -43,15 +35,13 @@
 export default {
     data: () => ({
         year: '',
-        gender: '',
         response: {},
     }),
 
     methods: {
-        fetchGenderPerYear() {
+        fetchStudentPerYear() {
             const year = this.year
-            const gender = this.gender
-            axios.get(`${window.origin}/api/getGenderPerYear/${year}/${gender}`)
+            axios.get(`${window.origin}/api/getStudentPerYear/${year}`)
             .then(res => {
                 this.response = res.data
                 console.log(res.data)

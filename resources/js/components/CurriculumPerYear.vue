@@ -2,28 +2,24 @@
     <div class="card">
         <div class="card-body">
             <div class="card-title">
-                <h3><code class="method">getGenderPerYear(year, gender)</code></h3>
+                <h3><code class="method">getCurriculumPerYear(year, curriculum_id)</code></h3>
                 <code class="comment">
-                    Gets the number of a specific gender of a specific year.
+                    Gets the number of students of a specific curriculum in a specific year.
                 </code>
                 <div class="p-2">
                     <b>Parameters: </b>
                     <input 
-                        type="text" 
-                        v-model="year" 
-                        placeholder="year"
-                    >
-                    <select 
                     type="text" 
-                    v-model="gender" 
-                    placeholder="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                    <button @click="fetchGenderPerYear()">Fetch</button>
+                    v-model="year" 
+                    placeholder="year">
+                    <input 
+                    type="text" 
+                    v-model="curriculum_id" 
+                    placeholder="curriculum_id">
+                    <button @click="fetchCurriculumPerYear()">Fetch</button>
                 </div>
                 <div class="app-uri pt-2">
-                    URI: {{ `/api/getGenderPerYear/${year ? year : '{year}'}/${gender ? gender : '{gender}'}` }}
+                    URI: {{ `/api/getCurriculumPerYear/${year ? year : '{year}'}/${curriculum_id ? curriculum_id : '{curriculum_id}'}` }}
                 </div>
             </div>
         </div>
@@ -43,15 +39,15 @@
 export default {
     data: () => ({
         year: '',
-        gender: '',
+        curriculum_id: '',
         response: {},
     }),
 
     methods: {
-        fetchGenderPerYear() {
+        fetchCurriculumPerYear() {
             const year = this.year
-            const gender = this.gender
-            axios.get(`${window.origin}/api/getGenderPerYear/${year}/${gender}`)
+            const curriculum_id = this.curriculum_id
+            axios.get(`${window.origin}/api/getCurriculumPerYear/${year}/${curriculum_id}`)
             .then(res => {
                 this.response = res.data
                 console.log(res.data)

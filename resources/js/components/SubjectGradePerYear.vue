@@ -6,29 +6,48 @@
                 <code class="comment">
                     Gets the total number of students with specific grade of a specific subject with a specific year.
                 </code>
-                <div class="p-2 text-center">
+                <div class="p-2">
                     <b>Parameters: </b>
                     <input 
-                        type="text" 
-                        v-model="year" 
-                        placeholder="year"
-                    >
+                    type="text" 
+                    v-model="year" 
+                    placeholder="year">
                     <input 
-                        type="text" 
-                        v-model="subject_id" 
-                        placeholder="subject_id"
-                    >
-                    <input 
-                        type="text" 
-                        v-model="grade" 
-                        placeholder="grade"
-                    >
+                    type="text" 
+                    v-model="subject_id" 
+                    placeholder="subject_id">
+                    <select 
+                    type="text" 
+                    v-model="grade" 
+                    placeholder="grade">
+                        <option>1.0</option>
+                        <option>1.25</option>
+                        <option>1.50</option>
+                        <option>1.75</option>
+                        <option>2.0</option>
+                        <option>2.25</option>
+                        <option>2.50</option>
+                        <option>2.75</option>
+                        <option>3.0</option>
+                        <option>5.0</option>
+                        <option>INC</option>
+                        <option>DROP</option>
+                    </select>
                     <button @click="fetchSubjectGradePerYear()">Fetch</button>
                 </div>
-                <div class="bg-dark p-5">
-                    <code class="response"> {{ response }} </code>
+                <div class="app-uri pt-2">
+                    URI: {{ `/api/getSubjectGradePerYear/${year ? year : '{year}'}/${subject_id ? subject_id : '{subject_id}'}/${grade ? grade : '{grade}'}` }}
                 </div>
             </div>
+        </div>
+
+        <div class="bg-dark p-5">
+            <code class="response"> 
+                {{ response }}
+                <div class="app-result mt-3">
+                    Result: {{ response.count }}
+                </div>
+            </code>
         </div>
     </div>
 </template>

@@ -1840,6 +1840,9 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SubjectGradePerYear__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/SubjectGradePerYear */ "./resources/js/components/SubjectGradePerYear.vue");
 /* harmony import */ var _components_GenderPerYear__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/GenderPerYear */ "./resources/js/components/GenderPerYear.vue");
+/* harmony import */ var _components_StudentPerYear__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/StudentPerYear */ "./resources/js/components/StudentPerYear.vue");
+/* harmony import */ var _components_CurriculumPerYear__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/CurriculumPerYear */ "./resources/js/components/CurriculumPerYear.vue");
+/* harmony import */ var _components_SubjectSemesterYear__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/SubjectSemesterYear */ "./resources/js/components/SubjectSemesterYear.vue");
 //
 //
 //
@@ -1851,12 +1854,90 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     SubjectGradePerYear: _components_SubjectGradePerYear__WEBPACK_IMPORTED_MODULE_0__["default"],
-    GenderPerYear: _components_GenderPerYear__WEBPACK_IMPORTED_MODULE_1__["default"]
+    GenderPerYear: _components_GenderPerYear__WEBPACK_IMPORTED_MODULE_1__["default"],
+    StudentPerYear: _components_StudentPerYear__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CurriculumPerYear: _components_CurriculumPerYear__WEBPACK_IMPORTED_MODULE_3__["default"],
+    SubjectSemesterYear: _components_SubjectSemesterYear__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurriculumPerYear.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CurriculumPerYear.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      year: '',
+      curriculum_id: '',
+      response: {}
+    };
+  },
+  methods: {
+    fetchCurriculumPerYear: function fetchCurriculumPerYear() {
+      var _this = this;
+
+      var year = this.year;
+      var curriculum_id = this.curriculum_id;
+      axios.get("".concat(window.origin, "/api/getCurriculumPerYear/").concat(year, "/").concat(curriculum_id)).then(function (res) {
+        _this.response = res.data;
+        console.log(res.data);
+      });
+    }
   }
 });
 
@@ -1871,6 +1952,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -1932,6 +2017,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StudentPerYear.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StudentPerYear.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      year: '',
+      response: {}
+    };
+  },
+  methods: {
+    fetchStudentPerYear: function fetchStudentPerYear() {
+      var _this = this;
+
+      var year = this.year;
+      axios.get("".concat(window.origin, "/api/getStudentPerYear/").concat(year)).then(function (res) {
+        _this.response = res.data;
+        console.log(res.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SubjectGradePerYear.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SubjectGradePerYear.vue?vue&type=script&lang=js& ***!
@@ -1941,6 +2090,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1993,6 +2161,82 @@ __webpack_require__.r(__webpack_exports__);
       var subject_id = this.subject_id;
       var grade = this.grade;
       axios.get("".concat(window.origin, "/api/getSubjectGradePerYear/").concat(year, "/").concat(subject_id, "/").concat(grade)).then(function (res) {
+        _this.response = res.data;
+        console.log(res.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SubjectSemesterYear.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SubjectSemesterYear.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      year: '',
+      semester: '',
+      subject_id: '',
+      response: {}
+    };
+  },
+  methods: {
+    fetchSubjectSemesterYear: function fetchSubjectSemesterYear() {
+      var _this = this;
+
+      var year = this.year;
+      var semester = this.semester;
+      var subject_id = this.subject_id;
+      axios.get("".concat(window.origin, "/api/getSubjectSemesterYear/").concat(year, "/").concat(semester, "/").concat(subject_id)).then(function (res) {
         _this.response = res.data;
         console.log(res.data);
       });
@@ -6459,7 +6703,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.comment {\n    color: black;\n    font-weight: 500;\n}\n.method {\n    color: blueviolet;\n    font-weight: bold;\n}\n.response {\n    color: lightskyblue;\n    font-weight: 700;\n}\n", ""]);
+exports.push([module.i, "\n.app-font {\n    font-family:'Courier New', Courier, monospace;\n}\n.app-uri {\n    color: darkblue;\n    font-weight: bold;\n}\n.app-result {\n    color: lightgreen;\n    font-size: 16px;\n}\n.comment {\n    color: black;\n    font-weight: 500;\n    font-size: 18px;\n}\n.method {\n    color: blueviolet;\n    font-weight: bold;\n}\n.response {\n    color: lightskyblue;\n    font-weight: 700;\n}\n", ""]);
 
 // exports
 
@@ -37941,7 +38185,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container app-font" }, [
     _c(
       "div",
       { staticClass: "mt-5" },
@@ -37949,23 +38193,161 @@ var render = function() {
         _c(
           "a",
           {
+            staticClass: "my-font",
             attrs: {
               href: "https://www.tutorialspoint.com/r/r_linear_regression.htm",
               target: "_blank"
             }
           },
-          [_vm._v("Linear Regression")]
+          [_vm._v("Linear Regression Tutorial")]
         ),
         _vm._v(" "),
-        _c("SubjectGradePerYear", { staticClass: "mb-3" }),
+        _c("SubjectGradePerYear", { staticClass: "mb-5" }),
         _vm._v(" "),
-        _c("GenderPerYear", { staticClass: "mb-3" })
+        _c("GenderPerYear", { staticClass: "mb-5" }),
+        _vm._v(" "),
+        _c("StudentPerYear", { staticClass: "mb-5" }),
+        _vm._v(" "),
+        _c("CurriculumPerYear", { staticClass: "mb-5" }),
+        _vm._v(" "),
+        _c("SubjectSemesterYear", { staticClass: "mb-5" })
       ],
       1
     )
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurriculumPerYear.vue?vue&type=template&id=49e93fe4&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CurriculumPerYear.vue?vue&type=template&id=49e93fe4& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card-title" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("code", { staticClass: "comment" }, [
+          _vm._v(
+            "\n                Gets the number of students of a specific curriculum in a specific year.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2" }, [
+          _c("b", [_vm._v("Parameters: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.year,
+                expression: "year"
+              }
+            ],
+            attrs: { type: "text", placeholder: "year" },
+            domProps: { value: _vm.year },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.year = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.curriculum_id,
+                expression: "curriculum_id"
+              }
+            ],
+            attrs: { type: "text", placeholder: "curriculum_id" },
+            domProps: { value: _vm.curriculum_id },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.curriculum_id = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.fetchCurriculumPerYear()
+                }
+              }
+            },
+            [_vm._v("Fetch")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "app-uri pt-2" }, [
+          _vm._v(
+            "\n                URI: " +
+              _vm._s(
+                "/api/getCurriculumPerYear/" +
+                  (_vm.year ? _vm.year : "{year}") +
+                  "/" +
+                  (_vm.curriculum_id ? _vm.curriculum_id : "{curriculum_id}")
+              ) +
+              "\n            "
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-dark p-5" }, [
+      _c("code", { staticClass: "response" }, [
+        _vm._v("\n            " + _vm._s(_vm.response) + "\n            "),
+        _c("div", { staticClass: "app-result mt-3" }, [
+          _vm._v(
+            "\n                Result: " +
+              _vm._s(_vm.response.count) +
+              "\n            "
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", [
+      _c("code", { staticClass: "method" }, [
+        _vm._v("getCurriculumPerYear(year, curriculum_id)")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37998,7 +38380,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "p-2 text-center" }, [
+        _c("div", { staticClass: "p-2" }, [
           _c("b", [_vm._v("Parameters: ")]),
           _vm._v(" "),
           _c("input", {
@@ -38070,21 +38452,30 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-dark p-5" }, [
-          _c("code", { staticClass: "response" }, [
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.response) +
-                "\n                    "
-            ),
-            _c("div", [
-              _vm._v(
-                "\n                        Count: " +
-                  _vm._s(_vm.response.count) +
-                  "\n                    "
-              )
-            ])
-          ])
+        _c("div", { staticClass: "app-uri pt-2" }, [
+          _vm._v(
+            "\n                URI: " +
+              _vm._s(
+                "/api/getGenderPerYear/" +
+                  (_vm.year ? _vm.year : "{year}") +
+                  "/" +
+                  (_vm.gender ? _vm.gender : "{gender}")
+              ) +
+              "\n            "
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-dark p-5" }, [
+      _c("code", { staticClass: "response" }, [
+        _vm._v("\n            " + _vm._s(_vm.response) + "\n            "),
+        _c("div", { staticClass: "app-result mt-3" }, [
+          _vm._v(
+            "\n                Result: " +
+              _vm._s(_vm.response.count) +
+              "\n            "
+          )
         ])
       ])
     ])
@@ -38099,6 +38490,111 @@ var staticRenderFns = [
       _c("code", { staticClass: "method" }, [
         _vm._v("getGenderPerYear(year, gender)")
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StudentPerYear.vue?vue&type=template&id=4269902c&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StudentPerYear.vue?vue&type=template&id=4269902c& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card-title" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("code", { staticClass: "comment" }, [
+          _vm._v(
+            "\n                Gets the number of students of a specific year.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2" }, [
+          _c("b", [_vm._v("Parameters: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.year,
+                expression: "year"
+              }
+            ],
+            attrs: { type: "text", placeholder: "year" },
+            domProps: { value: _vm.year },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.year = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.fetchStudentPerYear()
+                }
+              }
+            },
+            [_vm._v("Fetch")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "app-uri pt-2" }, [
+          _vm._v(
+            "\n                URI: " +
+              _vm._s(
+                "/api/getStudentPerYear/" + (_vm.year ? _vm.year : "{year}")
+              ) +
+              "\n            "
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-dark p-5" }, [
+      _c("code", { staticClass: "response" }, [
+        _vm._v("\n            " + _vm._s(_vm.response) + "\n            "),
+        _c("div", { staticClass: "app-result mt-3" }, [
+          _vm._v(
+            "\n                Result: " +
+              _vm._s(_vm.response.count) +
+              "\n            "
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", [
+      _c("code", { staticClass: "method" }, [_vm._v("getStudentPerYear(year)")])
     ])
   }
 ]
@@ -38134,7 +38630,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "p-2 text-center" }, [
+        _c("div", { staticClass: "p-2" }, [
           _c("b", [_vm._v("Parameters: ")]),
           _vm._v(" "),
           _c("input", {
@@ -38179,26 +38675,60 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.grade,
-                expression: "grade"
-              }
-            ],
-            attrs: { type: "text", placeholder: "grade" },
-            domProps: { value: _vm.grade },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.grade,
+                  expression: "grade"
                 }
-                _vm.grade = $event.target.value
+              ],
+              attrs: { type: "text", placeholder: "grade" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.grade = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
               }
-            }
-          }),
+            },
+            [
+              _c("option", [_vm._v("1.0")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1.25")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1.50")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("1.75")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2.0")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2.25")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2.50")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2.75")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("3.0")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("5.0")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("INC")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("DROP")])
+            ]
+          ),
           _vm._v(" "),
           _c(
             "button",
@@ -38213,10 +38743,32 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-dark p-5" }, [
-          _c("code", { staticClass: "response" }, [
-            _vm._v(" " + _vm._s(_vm.response) + " ")
-          ])
+        _c("div", { staticClass: "app-uri pt-2" }, [
+          _vm._v(
+            "\n                URI: " +
+              _vm._s(
+                "/api/getSubjectGradePerYear/" +
+                  (_vm.year ? _vm.year : "{year}") +
+                  "/" +
+                  (_vm.subject_id ? _vm.subject_id : "{subject_id}") +
+                  "/" +
+                  (_vm.grade ? _vm.grade : "{grade}")
+              ) +
+              "\n            "
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-dark p-5" }, [
+      _c("code", { staticClass: "response" }, [
+        _vm._v(" \n            " + _vm._s(_vm.response) + "\n            "),
+        _c("div", { staticClass: "app-result mt-3" }, [
+          _vm._v(
+            "\n                Result: " +
+              _vm._s(_vm.response.count) +
+              "\n            "
+          )
         ])
       ])
     ])
@@ -38230,6 +38782,173 @@ var staticRenderFns = [
     return _c("h3", [
       _c("code", { staticClass: "method" }, [
         _vm._v("getSubjectGradePerYear(year, subject_id, grade)")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SubjectSemesterYear.vue?vue&type=template&id=6deafe46&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SubjectSemesterYear.vue?vue&type=template&id=6deafe46& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card-title" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("code", { staticClass: "comment" }, [
+          _vm._v(
+            "\n                Gets the number of students that took a specific subject in a specific semester with a specific year.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-2" }, [
+          _c("b", [_vm._v("Parameters: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.year,
+                expression: "year"
+              }
+            ],
+            attrs: { type: "text", placeholder: "year" },
+            domProps: { value: _vm.year },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.year = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.semester,
+                  expression: "semester"
+                }
+              ],
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.semester = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "1" } }, [_vm._v("1st Semester")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [_vm._v("2nd Semester")])
+            ]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.subject_id,
+                expression: "subject_id"
+              }
+            ],
+            attrs: { type: "text", placeholder: "subject_id" },
+            domProps: { value: _vm.subject_id },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.subject_id = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.fetchSubjectSemesterYear()
+                }
+              }
+            },
+            [_vm._v("Fetch")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "app-uri pt-2" }, [
+          _vm._v(
+            "\n                URI: " +
+              _vm._s(
+                "/api/getSubjectSemesterYear/" +
+                  (_vm.year ? _vm.year : "{year}") +
+                  "/" +
+                  (_vm.semester ? _vm.semester : "{semester}") +
+                  "/" +
+                  (_vm.subject_id ? _vm.subject_id : "{subject_id}")
+              ) +
+              "\n            "
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-dark p-5" }, [
+      _c("code", { staticClass: "response" }, [
+        _vm._v("\n            " + _vm._s(_vm.response) + "\n            "),
+        _c("div", { staticClass: "app-result mt-3" }, [
+          _vm._v(
+            "\n                Result: " +
+              _vm._s(_vm.response.count) +
+              "\n            "
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", [
+      _c("code", { staticClass: "method" }, [
+        _vm._v("getSubjectSemesterYear(year, semester, subject_id)")
       ])
     ])
   }
@@ -50531,6 +51250,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/CurriculumPerYear.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/CurriculumPerYear.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CurriculumPerYear_vue_vue_type_template_id_49e93fe4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CurriculumPerYear.vue?vue&type=template&id=49e93fe4& */ "./resources/js/components/CurriculumPerYear.vue?vue&type=template&id=49e93fe4&");
+/* harmony import */ var _CurriculumPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CurriculumPerYear.vue?vue&type=script&lang=js& */ "./resources/js/components/CurriculumPerYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CurriculumPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CurriculumPerYear_vue_vue_type_template_id_49e93fe4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CurriculumPerYear_vue_vue_type_template_id_49e93fe4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CurriculumPerYear.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CurriculumPerYear.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/CurriculumPerYear.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CurriculumPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CurriculumPerYear.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurriculumPerYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CurriculumPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CurriculumPerYear.vue?vue&type=template&id=49e93fe4&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/CurriculumPerYear.vue?vue&type=template&id=49e93fe4& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CurriculumPerYear_vue_vue_type_template_id_49e93fe4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CurriculumPerYear.vue?vue&type=template&id=49e93fe4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurriculumPerYear.vue?vue&type=template&id=49e93fe4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CurriculumPerYear_vue_vue_type_template_id_49e93fe4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CurriculumPerYear_vue_vue_type_template_id_49e93fe4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/GenderPerYear.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/GenderPerYear.vue ***!
@@ -50600,6 +51388,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/StudentPerYear.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/StudentPerYear.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StudentPerYear_vue_vue_type_template_id_4269902c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StudentPerYear.vue?vue&type=template&id=4269902c& */ "./resources/js/components/StudentPerYear.vue?vue&type=template&id=4269902c&");
+/* harmony import */ var _StudentPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StudentPerYear.vue?vue&type=script&lang=js& */ "./resources/js/components/StudentPerYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StudentPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StudentPerYear_vue_vue_type_template_id_4269902c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StudentPerYear_vue_vue_type_template_id_4269902c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/StudentPerYear.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/StudentPerYear.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/StudentPerYear.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./StudentPerYear.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StudentPerYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPerYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/StudentPerYear.vue?vue&type=template&id=4269902c&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/StudentPerYear.vue?vue&type=template&id=4269902c& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPerYear_vue_vue_type_template_id_4269902c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./StudentPerYear.vue?vue&type=template&id=4269902c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StudentPerYear.vue?vue&type=template&id=4269902c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPerYear_vue_vue_type_template_id_4269902c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPerYear_vue_vue_type_template_id_4269902c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/SubjectGradePerYear.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/SubjectGradePerYear.vue ***!
@@ -50664,6 +51521,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubjectGradePerYear_vue_vue_type_template_id_eb1f5658___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubjectGradePerYear_vue_vue_type_template_id_eb1f5658___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SubjectSemesterYear.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/SubjectSemesterYear.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SubjectSemesterYear_vue_vue_type_template_id_6deafe46___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SubjectSemesterYear.vue?vue&type=template&id=6deafe46& */ "./resources/js/components/SubjectSemesterYear.vue?vue&type=template&id=6deafe46&");
+/* harmony import */ var _SubjectSemesterYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubjectSemesterYear.vue?vue&type=script&lang=js& */ "./resources/js/components/SubjectSemesterYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SubjectSemesterYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SubjectSemesterYear_vue_vue_type_template_id_6deafe46___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SubjectSemesterYear_vue_vue_type_template_id_6deafe46___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SubjectSemesterYear.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SubjectSemesterYear.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/SubjectSemesterYear.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SubjectSemesterYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SubjectSemesterYear.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SubjectSemesterYear.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SubjectSemesterYear_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SubjectSemesterYear.vue?vue&type=template&id=6deafe46&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/SubjectSemesterYear.vue?vue&type=template&id=6deafe46& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubjectSemesterYear_vue_vue_type_template_id_6deafe46___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SubjectSemesterYear.vue?vue&type=template&id=6deafe46& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SubjectSemesterYear.vue?vue&type=template&id=6deafe46&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubjectSemesterYear_vue_vue_type_template_id_6deafe46___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubjectSemesterYear_vue_vue_type_template_id_6deafe46___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
