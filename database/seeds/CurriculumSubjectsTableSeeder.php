@@ -45,8 +45,8 @@ class CurriculumSubjectsTableSeeder extends Seeder
                     'subject_id' => $subject_id,
                 ]);
 
-                $department_id = App\Curriculum::where('id', $curr_subj->curriculum_id)->select('department_id')->first();
-                $faculties = App\Faculty::where('department_id', $department_id)->select('id')->get()->toArray();
+                $department = App\Curriculum::where('id', $curr_subj->curriculum_id)->first();
+                $faculties = App\Faculty::where('department_id', $department->id)->select('id')->get()->toArray();
 
                 if(count($faculties) > 0) {
                     Offering::create([
