@@ -56,13 +56,13 @@ class GradesTableSeeder extends Seeder
             'grade' => 'INC',
         ]);
 
-        Grade::create([
-            'grade' => 'IN PROGRESS',
-        ]);
+        // Grade::create([
+        //     'grade' => 'IN PROGRESS',
+        // ]);
 
-        Grade::create([
-            'grade' => 'PASSED',
-        ]);
+        // Grade::create([
+        //     'grade' => 'PASSED',
+        // ]);
 
         Grade::create([
             'grade' => 'DROP',

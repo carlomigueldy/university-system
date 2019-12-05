@@ -21,4 +21,9 @@ class Subject extends Model
     {
         return $this->hasMany('App\Offering');
     }
+
+    public function enrolled_subjects()
+    {
+        return $this->hasMany('App\EnrolledSubject');
+    }
 }

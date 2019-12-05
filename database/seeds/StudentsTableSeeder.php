@@ -17,8 +17,10 @@ class StudentsTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
+        $years = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
         
         foreach (range(1, 10000) as $i) {
+            $year = $faker->numberBetween($min = 0, $max = 8);
             $genders = ['Male', 'Female'];
             $hasScholarship = [true, false];
             $student = Student::create([
@@ -50,6 +52,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '1st Year',
                 'semester' => '1st Semester',
+                'year' => $years[$year],
             ]);
                 
             foreach (range(1, 8) as $s) {
@@ -70,6 +73,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '1st Year',
                 'semester' => '2nd Semester',
+                'year' => $years[$year],
             ]);
 
             foreach (range(1, 8) as $s) {
@@ -93,6 +97,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '2nd Year',
                 'semester' => '1st Semester',
+                'year' => $years[$year + 1],
             ]);
 
             foreach (range(1, 8) as $s) {
@@ -113,6 +118,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '2nd Year',
                 'semester' => '2nd Semester',
+                'year' => $years[$year + 1],
             ]);
 
             foreach (range(1, 8) as $s) {
@@ -136,6 +142,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '3rd Year',
                 'semester' => '1st Semester',
+                'year' => $years[$year + 2],
             ]);
 
             foreach (range(1, 8) as $s) {
@@ -156,6 +163,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '3rd Year',
                 'semester' => '2nd Semester',
+                'year' => $years[$year + 2],
             ]);
 
             foreach (range(1, 8) as $s) {
@@ -179,6 +187,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '4th Year',
                 'semester' => '1st Semester',
+                'year' => $years[$year + 3],
             ]);
             
             foreach (range(1, 8) as $s) {
@@ -199,6 +208,7 @@ class StudentsTableSeeder extends Seeder
                 'curriculum_id' => $curriculum_id,
                 'standing' => '4th Year',
                 'semester' => '2nd Semester',
+                'year' => $years[$year + 3],
             ]);
 
             foreach (range(1, 8) as $s) {

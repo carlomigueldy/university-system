@@ -21,7 +21,7 @@ class EnrolledSubject extends Model
 
     public function grade()
     {
-        return $this->belongsTo('App\CertificateOfRegistration');
+        return $this->belongsTo('App\Grade');
     }
 
     public function subject()

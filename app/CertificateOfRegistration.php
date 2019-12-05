@@ -11,6 +11,7 @@ class CertificateOfRegistration extends Model
         'scholarship_id',
         'curriculum_id',
         'semester',
+        'year',
     ];
 
     public $timestamps = false;

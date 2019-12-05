@@ -20,6 +20,7 @@ class CreateCertificateOfRegistrationsTable extends Migration
             $table->unsignedBigInteger('curriculum_id');
             $table->string('semester');
             $table->string('standing');
+            $table->string('year');
         });
 
         Schema::table('certificate_of_registrations', function($table) {
