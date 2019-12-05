@@ -10,11 +10,16 @@ class CertificateOfRegistration extends Model
         'student_id',
         'scholarship_id',
         'curriculum_id',
-        'semester',
         'year',
+        'semester',
     ];
 
     public $timestamps = false;
+    
+    // public function year()
+    // {
+    //     return $this->belongsTo('App\Year');
+    // }
     
     public function student()
     {

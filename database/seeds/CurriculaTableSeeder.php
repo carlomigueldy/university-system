@@ -149,26 +149,22 @@ class CurriculaTableSeeder extends Seeder
 
         Curriculum::create([
             'department_id' => 19,
-            'name' => 'Bachelor of Secondary Education
-            Biology',
+            'name' => 'Bachelor of Secondary Education Biology',
         ]);
 
         Curriculum::create([
             'department_id' => 19,
-            'name' => 'Bachelor of Secondary Education
-            Chemistry',
+            'name' => 'Bachelor of Secondary Education Chemistry',
         ]);
 
         Curriculum::create([
             'department_id' => 19,
-            'name' => 'Bachelor of Secondary Education
-            Physics',
+            'name' => 'Bachelor of Secondary Education Physics',
         ]);
 
         Curriculum::create([
             'department_id' => 19,
-            'name' => 'Bachelor of Secondary Education
-            Mathematics',
+            'name' => 'Bachelor of Secondary Education Mathematics',
         ]);
 
         Curriculum::create([
@@ -178,8 +174,7 @@ class CurriculaTableSeeder extends Seeder
 
         Curriculum::create([
             'department_id' => 20,
-            'name' => 'Bachelor of Secondary Education
-            Filipino',
+            'name' => 'Bachelor of Secondary Education Filipino',
         ]);
 
         Curriculum::create([
@@ -204,50 +199,42 @@ class CurriculaTableSeeder extends Seeder
 
         Curriculum::create([
             'department_id' => 23,
-            'name' => 'Bachelor of Science in
-            Electronics and Communication Engineering',
+            'name' => 'Bachelor of Science in Electronics and Communication Engineering',
         ]);
 
         Curriculum::create([
             'department_id' => 23,
-            'name' => 'Bachelor of Science in
-            Computer Engineering',
+            'name' => 'Bachelor of Science in Computer Engineering',
         ]);
 
         Curriculum::create([
             'department_id' => 23,
-            'name' => 'Bachelor of Science in
-            Electrical Engineering',
+            'name' => 'Bachelor of Science in Electrical Engineering',
         ]);
 
         Curriculum::create([
             'department_id' => 24,
-            'name' => 'Bachelor of Science in
-            Ceramics Engineering',
+            'name' => 'Bachelor of Science in Ceramics Engineering',
         ]);
 
         Curriculum::create([
             'department_id' => 24,
-            'name' => 'Bachelor of Science in
-            Metallurgical Engineering',
+            'name' => 'Bachelor of Science in Metallurgical Engineering',
         ]);
 
         Curriculum::create([
             'department_id' => 25,
-            'name' => 'Bachelor of Science in
-            Civil Engineering',
+            'name' => 'Bachelor of Science in Civil Engineering',
         ]);
 
         Curriculum::create([
             'department_id' => 26,
-            'name' => 'Bachelor of Science in
-            Chemical Engineering',
+            'name' => 'Bachelor of Science in Chemical Engineering',
         ]);
 
         Curriculum::create([
             'department_id' => 27,
-            'name' => 'Bachelor of Science in
-            Mechanical Engineering',
+            'name' => 'Bachelor of Science in Mechanical Engineering',
         ]);
     }
 }
