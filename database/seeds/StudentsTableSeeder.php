@@ -17,10 +17,14 @@ class StudentsTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        $years = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+        $years = [];
+        foreach (range(1, 30) as $i) {
+            array_push($years, 1980 + $i);
+        }
         
-        foreach (range(1, 10000) as $i) {
-            $year = $faker->numberBetween($min = 0, $max = 8);
+        // 500+600+700 ... 30 times increment by 100
+        foreach (range(1, 58500) as $i) {
+            $year = $faker->numberBetween($min = 0, $max = count($years) - 4);
             $genders = ['Male', 'Female'];
             $hasScholarship = [true, false];
             $student = Student::create([
