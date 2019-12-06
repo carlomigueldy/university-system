@@ -1,50 +1,76 @@
 <template>
-    <div class="card">
-        <div class="card-body">
-            <div class="card-title">
-                <h3><code class="method">getStudentPerYear(year)</code></h3>
-                <code class="comment">
-                    Gets the number of students of a specific year.
-                </code>
-                <div class="p-2">
+    <v-card :loading="loading">
+        <v-card-title>
+            <h3>getStudentPerYear(year)</h3>
+        </v-card-title>
+        <v-card-text>
+            <div>Gets the number of students of a specific year.</div>
+            <v-row>
+                <v-col cols="2">
                     <b>Parameters: </b>
-                    <input 
-                        type="text" 
-                        v-model="year" 
-                        placeholder="year">
-                    <button @click="fetchStudentPerYear()">Fetch</button>
-                </div>
-                <div class="app-uri pt-2">
-                    URI: {{ `/api/getStudentPerYear/${year ? year : '{year}'}` }}
-                </div>
+                </v-col>
+                <v-col>
+                    <v-select 
+                    :items="years"
+                    v-model="year" 
+                    label="year"
+                    filled
+                    ></v-select>
+                </v-col>
+                <v-col>
+                    <v-btn 
+                    block
+                    class="mt-5"
+                    color="primary"
+                    :loading="loading"
+                    @click="fetchStudentPerYear()">
+                    Fetch
+                    </v-btn>
+                </v-col>
+            </v-row>
+            <div>
+                URI: {{ `/api/getStudentPerYear/${year ? year : '{year}'}` }}
             </div>
-        </div>
+        </v-card-text>
 
         <div class="bg-dark p-5">
-            <code class="response">
+            <div class="response">
                 {{ response }}
                 <div class="app-result mt-3">
                     Result: {{ response.count }}
                 </div>
-            </code>
+            </div>
         </div>
-    </div>
+    </v-card>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+    props: {
+        years: Array,
+    },
+    
     data: () => ({
         year: '',
         response: {},
+        loading: false,
     }),
 
     methods: {
         fetchStudentPerYear() {
+            this.loading = true
             const year = this.year
             axios.get(`${window.origin}/api/getStudentPerYear/${year}`)
             .then(res => {
                 this.response = res.data
+                this.loading = false
                 console.log(res.data)
+            })
+            .catch(err => {
+                this.loading = false
+                console.log(err.response)
             })
         },
     }

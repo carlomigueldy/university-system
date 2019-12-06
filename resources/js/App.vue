@@ -1,5 +1,5 @@
 <template>
-    <div class="container app-font">
+    <v-app class="app-font">
         <div class="text-center">
             <h1 class="mt-5"> 
                 <span class="text-danger">E</span>xtract 
@@ -9,15 +9,17 @@
             </h1>
             <h6>by <a href="https://carlomigueldy.com" target="_blank">Carlo Miguel Dy</a> </h6>
         </div>
-        <div class="mt-5">
+        <v-container class="mt-5">
             <a href="https://www.tutorialspoint.com/r/r_linear_regression.htm" target="_blank" class="my-font">Linear Regression Tutorial</a>
-            <SubjectGradePerYear class="mb-5" />
-            <GenderPerYear class="mb-5" />
-            <StudentPerYear class="mb-5" />
-            <CurriculumPerYear class="mb-5" />
-            <SubjectSemesterYear class="mb-5" />
-        </div>
-    </div>
+            <v-content>
+                <SubjectGradePerYear :years="years" class="mb-5" />
+                <GenderPerYear :years="years" class="mb-5" />
+                <StudentPerYear :years="years" class="mb-5" />
+                <CurriculumPerYear :years="years" class="mb-5" />
+                <SubjectSemesterYear :years="years" class="mb-5" />
+            </v-content>
+        </v-container>
+    </v-app>
 </template>
 
 <script>
@@ -34,6 +36,19 @@ export default {
         StudentPerYear,
         CurriculumPerYear,
         SubjectSemesterYear,
+    },
+
+    data: () => ({
+        years: [],
+    }),
+
+    created() {
+        const year = 1980
+        for (let i = 0; i < 39; i++) {
+            this.years.push(year + i)
+        }
+
+        console.log(this.years)
     }
 }
 </script>

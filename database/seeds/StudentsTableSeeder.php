@@ -18,7 +18,7 @@ class StudentsTableSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
         $years = [];
-        foreach (range(1, 30) as $i) {
+        foreach (range(0, 37) as $i) {
             array_push($years, 1980 + $i);
         }
         

@@ -1,60 +1,86 @@
 <template>
-    <div class="card">
-        <div class="card-body">
-            <div class="card-title">
-                <h3><code class="method">getGenderPerYear(year, gender)</code></h3>
-                <code class="comment">
-                    Gets the number of a specific gender of a specific year.
-                </code>
-                <div class="p-2">
+    <v-card :loading="loading">
+        <v-card-title>
+            <h3>getGenderPerYear(year, gender)</h3>
+        </v-card-title>
+        <v-card-text>
+            <div>Gets the number of a specific gender of a specific year.</div>
+            <v-row>
+                <v-col cols="2">
                     <b>Parameters: </b>
-                    <input 
-                        type="text" 
-                        v-model="year" 
-                        placeholder="year"
-                    >
-                    <select 
-                    type="text" 
+                </v-col>
+                <v-col>
+                    <v-select 
+                    v-model="year" 
+                    :items="years"
+                    label="year"
+                    filled
+                    ></v-select>
+                </v-col>
+                <v-col>
+                    <v-select 
+                    :items="['Male', 'Female']"
                     v-model="gender" 
-                    placeholder="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                    <button @click="fetchGenderPerYear()">Fetch</button>
-                </div>
-                <div class="app-uri pt-2">
-                    URI: {{ `/api/getGenderPerYear/${year ? year : '{year}'}/${gender ? gender : '{gender}'}` }}
-                </div>
+                    label="gender"
+                    filled
+                    ></v-select>
+                </v-col>
+                <v-col>
+                    <v-btn 
+                    class="mt-5"
+                    block
+                    color="primary"
+                    :loading="loading"
+                    @click="fetchGenderPerYear()">
+                    Fetch
+                    </v-btn>
+                </v-col>
+            </v-row>
+            <div>
+                URI: {{ `/api/getGenderPerYear/${year ? year : '{year}'}/${gender ? gender : '{gender}'}` }}
             </div>
-        </div>
+        </v-card-text>
 
         <div class="bg-dark p-5">
-            <code class="response">
+            <div class="response">
                 {{ response }}
                 <div class="app-result mt-3">
                     Result: {{ response.count }}
                 </div>
-            </code>
+            </div>
         </div>
-    </div>
+    </v-card>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+    props: {
+        years: Array,
+    },
+    
     data: () => ({
         year: '',
         gender: '',
         response: {},
+        loading: false,
     }),
 
     methods: {
         fetchGenderPerYear() {
+            this.loading = true
             const year = this.year
             const gender = this.gender
             axios.get(`${window.origin}/api/getGenderPerYear/${year}/${gender}`)
             .then(res => {
                 this.response = res.data
+                this.loading = false
                 console.log(res.data)
+            })
+            .catch(err => {
+                this.loading = false
+                console.log(err.response)
             })
         },
     }
