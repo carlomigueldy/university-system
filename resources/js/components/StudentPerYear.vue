@@ -1,5 +1,5 @@
 <template>
-    <v-card :loading="loading">
+    <v-card dark color="deep-purple accent-4" :loading="loading">
         <v-card-title>
             <h3>getStudentPerYear(year)</h3>
         </v-card-title>

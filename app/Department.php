@@ -16,4 +16,9 @@ class Department extends Model
     {
         return $this->belongsTo('App\College');
     }
+
+    public function curriculums()
+    {
+        return $this->hasMany('App\Curriculum');
+    }
 }

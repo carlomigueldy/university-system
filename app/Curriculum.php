@@ -13,6 +13,11 @@ class Curriculum extends Model
 
     public $timestamps = false;
 
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+    
     public function curriculum_subjects()
     {
         return $this->hasMany('App\CurriculumSubject');

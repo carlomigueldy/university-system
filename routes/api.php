@@ -6,7 +6,9 @@ Route::get('getSubjectGradePerYear/{year}/{subject_id}/{grade}', 'ETLController@
 Route::get('getGenderPerYear/{year}/{gender}', 'ETLController@getGenderPerYear');
 Route::get('getStudentPerYear/{year}', 'ETLController@getStudentPerYear');
 Route::get('getCurriculumPerYear/{year}/{curriculum_id}/', 'ETLController@getCurriculumPerYear');
+Route::get('getCurriculumStandingPerYear/{year}/{curriculum_id}/{standing}', 'ETLController@getCurriculumStandingPerYear');
 Route::get('getSubjectSemesterYear/{year}/{semester}/{subject_id}/', 'ETLController@getSubjectSemesterYear');
+Route::get('getCollegeGenderYear/{year}/{college_id}/{gender}/', 'ETLController@getCollegeGenderYear');
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

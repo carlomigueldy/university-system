@@ -16,7 +16,9 @@
                 <GenderPerYear :years="years" class="mb-5" />
                 <StudentPerYear :years="years" class="mb-5" />
                 <CurriculumPerYear :years="years" class="mb-5" />
+                <CurriculumStandingPerYear :standings="standings" :years="years" class="mb-5" />
                 <SubjectSemesterYear :years="years" class="mb-5" />
+                <CollegeGenderYear :years="years" :colleges="colleges" />
             </v-content>
         </v-container>
     </v-app>
@@ -28,6 +30,8 @@ import GenderPerYear from './components/GenderPerYear'
 import StudentPerYear from './components/StudentPerYear'
 import CurriculumPerYear from './components/CurriculumPerYear'
 import SubjectSemesterYear from './components/SubjectSemesterYear'
+import CurriculumStandingPerYear from './components/CurriculumStandingPerYear'
+import CollegeGenderYear from './components/CollegeGenderYear'
 
 export default {
     components: {
@@ -36,10 +40,48 @@ export default {
         StudentPerYear,
         CurriculumPerYear,
         SubjectSemesterYear,
+        CurriculumStandingPerYear,
+        CollegeGenderYear,
     },
 
     data: () => ({
         years: [],
+        standings: [
+            '1st Year',
+            '2nd Year',
+            '3rd Year',
+            '4th Year',
+        ],
+        colleges: [
+            {
+                id: 1,
+                name: 'College of Computer Studies',
+            },
+            {
+                id: 2,
+                name: 'College of Business Administration and Accountancy',
+            },
+            {
+                id: 3,
+                name: 'College of Social Arts and Sciences',
+            },
+            {
+                id: 4,
+                name: 'College of Nursing',
+            },
+            {
+                id: 5,
+                name: 'College of Education',
+            },
+            {
+                id: 6,
+                name: 'College of Engineering and Technology',
+            },
+            {
+                id: 7,
+                name: 'College of Science and Mathematics',
+            },
+        ],
     }),
 
     created() {
