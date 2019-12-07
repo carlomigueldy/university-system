@@ -43,7 +43,7 @@ class ETLController extends Controller
      */
     public function getGenderPerYear($year, $gender)
     {
-        $students = COR::where('year', $year)->get();
+        $students = COR::where('year', $year)->distinct()->get('student_id');
         $count = 0;
         foreach ($students as $student) {
             if ($student->student->gender == $gender) {
@@ -65,12 +65,11 @@ class ETLController extends Controller
      */
     public function getStudentPerYear($year)
     {
-        $students = COR::where('year', $year)->get();
-        $count = count($students);
+        $students = COR::where('year', $year)->distinct()->count('student_id');
 
         return response()->json([
             'year' => $year,
-            'count' => $count,
+            'count' => $students,
         ]);
     }
 
@@ -84,7 +83,7 @@ class ETLController extends Controller
     public function getCurriculumPerYear($year, $curriculum_id)
     {
         try {
-            $students = COR::where('curriculum_id', $curriculum_id)->where('year', $year)->get();
+            $students = COR::where('curriculum_id', $curriculum_id)->where('year', $year)->distinct()->get('student_id');
             $count = count($students);
         } catch (Exception $error) {
             return response()->json([
@@ -94,7 +93,6 @@ class ETLController extends Controller
         }
 
         return response()->json([
-            'curriculum' => $students[0]->curriculum->name,
             'count' => $count,
         ]);
     }
@@ -109,7 +107,7 @@ class ETLController extends Controller
      */
     public function getSubjectSemesterYear($year, $semester, $subject_id)
     {
-        $students = COR::where('year', $year)->where('semester', $semester == 1 ? '1st Semester' : $semester == 2 ? '2nd Semester' : null)->get();
+        $students = COR::where('year', $year)->where('semester', $semester == 1 ? '1st Semester' : $semester == 2 ? '2nd Semester' : null)->distinct()->get('student_id');
         $count = 0;
         foreach ($students as $student) {
             foreach ($student->enrolled_subjects as $subject) {
