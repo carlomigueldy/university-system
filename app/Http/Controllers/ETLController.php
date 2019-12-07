@@ -82,6 +82,29 @@ class ETLController extends Controller
     }
 
     /**
+     * Gets the number of students of a specific year.
+     * 
+     * @param Integer $year
+     */
+    public function getStudentSubjectPerYear($year, $subject_id)
+    {
+        $students = COR::where('year', $year)->distinct()->get();
+        $count = 0;
+        foreach ($students as $student) {
+            foreach ($student->enrolled_subjects as $subject) {
+                if ($subject->subject_id == $subject_id) {
+                    $count++;
+                }
+            }
+        }
+
+        return response()->json([
+            'year' => $year,
+            'count' => $students,
+        ]);
+    }
+
+    /**
      * Gets the number of students of a specific curriculum 
      * in a specific year.
      * 

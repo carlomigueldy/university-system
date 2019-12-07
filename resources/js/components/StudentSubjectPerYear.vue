@@ -1,7 +1,7 @@
 <template>
     <v-card dark color="indigo lighten-3" :loading="loading">
         <v-card-title>
-            <h3>getSubjectGradePerYear(year, subject_id, grade)</h3>
+            <h3>getStudentSubjectPerYear(year, subject_id)</h3>
         </v-card-title>
         <v-card-text>
             <div>Gets the total number of students with specific grade of a specific subject with a specific year.</div>
@@ -25,26 +25,18 @@
                     ></v-text-field>
                 </v-col>
                 <v-col>
-                    <v-select 
-                    v-model="grade" 
-                    label="grade"
-                    :items="grades"
-                    filled
-                    ></v-select>
-                </v-col>
-                <v-col>
                     <v-btn 
                     block
                     class="mt-5"
                     color="primary"
                     :loading="loading"
-                    @click="fetchSubjectGradePerYear()">
+                    @click="fetchStudentSubjectPerYear()">
                     Fetch
                     </v-btn>
                 </v-col>
             </v-row>
             <div>
-                URI: {{ `/api/getSubjectGradePerYear/${year ? year : '{year}'}/${subject_id ? subject_id : '{subject_id}'}/${grade ? grade : '{grade}'}` }}
+                URI: {{ `/api/getStudentSubjectPerYear/${year ? year : '{year}'}/${subject_id ? subject_id : '{subject_id}'}` }}
             </div>
         </v-card-text>
 
@@ -53,7 +45,6 @@
                 {{ response }}
                 <div class="app-result mt-3">
                     <div>Result: {{ response.count }}</div>
-                    <div>Alt. Result: {{ response.alt_count }}</div>
                 </div>
             </div>
         </div>
@@ -66,24 +57,21 @@ import axios from 'axios'
 export default {
     props: {
         years: Array,
-        grades: Array,
     },
     
     data: () => ({
         year: '',
         subject_id: '',
-        grade: '',
         response: {},
         loading: false,
     }),
 
     methods: {
-        fetchSubjectGradePerYear() {
+        fetchStudentSubjectPerYear() {
             this.loading = true
             const year = this.year
             const subject_id = this.subject_id
-            const grade = this.grade
-            axios.get(`${window.origin}/api/getSubjectGradePerYear/${year}/${subject_id}/${grade}`)
+            axios.get(`${window.origin}/api/getStudentSubjectPerYear/${year}/${subject_id}`)
             .then(res => {
                 this.response = res.data
                 this.loading = false

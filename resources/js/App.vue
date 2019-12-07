@@ -12,13 +12,14 @@
         <v-container class="mt-5">
             <a href="https://www.tutorialspoint.com/r/r_linear_regression.htm" target="_blank" class="my-font">Linear Regression Tutorial</a>
             <v-content>
-                <SubjectGradePerYear :years="years" class="mb-5" />
+                <SubjectGradePerYear :grades="grades" :years="years" class="mb-5" />
                 <GenderPerYear :years="years" class="mb-5" />
                 <StudentPerYear :years="years" class="mb-5" />
                 <CurriculumPerYear :years="years" class="mb-5" />
                 <CurriculumStandingPerYear :standings="standings" :years="years" class="mb-5" />
                 <SubjectSemesterYear :years="years" class="mb-5" />
-                <CollegeGenderYear :years="years" :colleges="colleges" />
+                <CollegeGenderYear :years="years" :colleges="colleges" class="mb-5" />
+                <StudentSubjectPerYear :years="years" class="mb-5" />
             </v-content>
         </v-container>
     </v-app>
@@ -32,6 +33,7 @@ import CurriculumPerYear from './components/CurriculumPerYear'
 import SubjectSemesterYear from './components/SubjectSemesterYear'
 import CurriculumStandingPerYear from './components/CurriculumStandingPerYear'
 import CollegeGenderYear from './components/CollegeGenderYear'
+import StudentSubjectPerYear from './components/StudentSubjectPerYear'
 
 export default {
     components: {
@@ -42,10 +44,12 @@ export default {
         SubjectSemesterYear,
         CurriculumStandingPerYear,
         CollegeGenderYear,
+        StudentSubjectPerYear,
     },
 
     data: () => ({
         years: [],
+        grades: ['1.0','1.25','1.50','1.75','2.0','2.25','2.50','2.75','3.0','5.0','INC','DROP'],
         standings: [
             '1st Year',
             '2nd Year',
